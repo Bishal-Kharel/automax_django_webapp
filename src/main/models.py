@@ -9,10 +9,10 @@ class Listing(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     seller = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    brans = models.CharField(max_length=24, choices=CARS_BRANDS, default=None)
+    brand = models.CharField(max_length=24, choices=CARS_BRANDS, default=None)
     model = models.CharField(max_length=64,)
     vin = models.CharField(max_length=12,)
-    milage = models.IntegerField(default=0)
+    mileage = models.IntegerField(default=0)
     color = models.CharField(max_length=24,)
     description = models.TextField()
     engine = models.CharField(max_length=24)
@@ -21,3 +21,5 @@ class Listing(models.Model):
     image = models.ImageField(upload_to =user_listing_path)
 
 
+    def __str__(self):
+        return f'{self.seller.user.username}\'s Listing -  {self.model}'
