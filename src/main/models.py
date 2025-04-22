@@ -1,8 +1,11 @@
+
 import uuid
 from django.db import models
 from users.models import Profile,Location
 from .consts import CARS_BRANDS,TRANSMISSION_OPTIONS
 from .utils import user_listing_path
+from django.db.models import CASCADE
+
 
 class Listing(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)
@@ -23,3 +26,12 @@ class Listing(models.Model):
 
     def __str__(self):
         return f'{self.seller.user.username}\'s Listing -  {self.model}'
+    
+
+class LikedListing(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=CASCADE)
+    listing = models.ForeignKey(Listing, on_delete=CASCADE)
+    like_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.listing.model} listing liked by {self.profile.user.username}'
