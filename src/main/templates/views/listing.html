@@ -71,7 +71,9 @@
                 </li>
               </ul>
               <button class="w-100 btn btn-lg btn-outline-primary my-3">
-                {{listing.seller.phone_number}}
+                {% if listing.seller.phone_number %}
+                {{listing.seller.phone_number }} {% else %} Phone number not
+                available {% endif %}
               </button>
               <button
                 id="sendEmail"
