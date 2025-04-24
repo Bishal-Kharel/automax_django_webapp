@@ -13,7 +13,7 @@
 ### Automax App
 
 <div>
-<img src="previews/ScreenShot_1.png" alt="feed example" width="400">
+<img src="previews/ScreenShot_11.png" alt="feed example" width="400">
 <img src="previews/ScreenShot_2.png" alt="feed example" width="400">
 <img src="previews/ScreenShot_3.png" alt="feed example" width="400">
 <img src="previews/ScreenShot_4.png" alt="feed example" width="400">
